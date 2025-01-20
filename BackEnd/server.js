@@ -20,7 +20,7 @@ app.post("/api/products", async (req, res) => {
 
     try {
         await newProduct.save();
-        req.status(201).json({success: true, data: newProduct});
+        return res.status(201).json({success: true, data: newProduct});
     } catch (error) {
         console.error("Error in creating product:", error.message)
         return res.status(500).json({success: false, message: "Server Error" }); // 500 status code if server error
