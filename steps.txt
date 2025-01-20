@@ -9,3 +9,5 @@ npm install nodemon -D // for restart if detect some changes in server.js
 // paste the MONGO db string connection in .env and name it as MONGO_URI 
 // import the dotenv in server.js and do dotenv.config()
 // create config folder and db.js
+
+// difference between get() -> (retrieve data) and post() -> (send data) 
