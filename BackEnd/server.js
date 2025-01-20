@@ -1,4 +1,4 @@
-import express from "express";
+import express from "express"; // add the "type": "module" in package to use this import 
 
 const app = express();
 
