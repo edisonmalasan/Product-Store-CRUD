@@ -1,4 +1,11 @@
 packages
 npm init -y
 npm install express mongoose dotenv // express for web framework // mongoose(mongodb) for db // dotenv (access to env variables)
-npm 
+npm install nodemon -D // for restart if detect some changes in server.js
+//  "dev": "nodemon backend/server.js" adding this in package to use (npm run dev) command
+
+// create a project and cluster in mongodb 
+// create .env file to add the cluster connection string and add the database name before the "?", also allow access anywhere in mongodb
+// paste the MONGO db string connection in .env and name it as MONGO_URI 
+// import the dotenv in server.js and do dotenv.config()
+// create config folder and db.js
