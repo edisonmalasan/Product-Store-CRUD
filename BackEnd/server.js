@@ -7,8 +7,10 @@ dotenv.config();
 
 const app = express();
 
+app.use(express.json()); // middleware that allows us to accept JSON data in the req.body
+
 app.post("/api/products", async (req, res) => {
-    const product = req.body; // user will send this data
+    const product = req.body; // user will send this data to use it u need to use express.json
 
     if(!product.name || !product.price || !product.image) {
         return res.status(400).json({ success: false, message: "Please Provide All Fields"}); // 400 status code if client error
