@@ -7,7 +7,7 @@ dotenv.config();
 
 const app = express();
 
-app.post("/products", async (req, res) => {
+app.post("/api/products", async (req, res) => {
     const product = req.body; // user will send this data
 
     if(!product.name || !product.price || !product.image) {
