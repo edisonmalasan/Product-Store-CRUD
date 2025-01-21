@@ -31,6 +31,9 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     connectDB();
     console.log("Server started at http://localhost:5000")
-})
+}). on("error", (error) => {
+    console.error("Error in starting server:", error.message);
+    process.exit(1);
+}); // process code 1 code means exit with failure, 0 means success
 
     
