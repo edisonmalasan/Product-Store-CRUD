@@ -1,4 +1,5 @@
 import express from "express"; // add the "type": "module" in package to use this import 
+import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import Product from "./models/product.js";
@@ -41,15 +42,15 @@ app.put("/api/products/:id", async (req, res) => {
     const {id} = req.params;
     const product = req.body;
 
-    if(!mongoose.Types.ObjectID.isValid(id)) {
-        return res.status(404).json({success: false, message: "Product not found"}); // 404 status code if not found
+    if(!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({success: false, message: "Invalid product id"}); // 400 status code if client error
     }
 
     try {
     const updateProduct = await Product.findByIdAndUpdate(id, product, {new: true}); // new: true will return the updated product
     res.status(200).json({success: true, data: updateProduct});
     } catch (error) {
-        res.status(500).json({success: false, message: "Server Error" }); // 500 status code if server error
+    res.status(500).json({success: false, message: "Server Error" }); // 500 status code if server error
     }
 });
 
