@@ -9,6 +9,16 @@ const app = express();
 
 app.use(express.json()); // middleware that allows us to accept JSON data in the req.body
 
+app.get("/api/products", async (req, res) => {
+    try {
+        const products = await Product.find({}); 
+        res.status(200).json({success: true, data: products});
+    } catch (error) {
+        console.error("Error in fetching product:", error.message)
+        res.status(500).json({success: false, message: "Server Error" }); // 500 status code if server error
+    }
+});
+
 app.post("/api/products", async (req, res) => {
     const product = req.body; // user will send this data to use it u need to use express.json
 
@@ -35,8 +45,8 @@ app.delete("/api/products/:id", async (req,res) => {
         await Product.findByIdAndDelete(id);
         res.status(200).json({success: true, message: "Product deleted successfully"});
     } catch (error) {
-        console.error("Error in deleting product:", error.message);
-        res.status(500).json({success: false, message: "Server Error"});
+        console.error("Error in deleting product:", error.message)
+        res.status(404).json({success: false, message: "Product not found"}); // 404 status code if not found
     }
 });
 
