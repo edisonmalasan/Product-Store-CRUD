@@ -28,3 +28,18 @@ export const createProduct = async (req, res) => {
     }
 };
 
+export const updateProduct = async (req, res) => {
+    const {id} = req.params;
+    const product = req.body;
+
+    if(!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({success: false, message: "Invalid product id"}); // 400 status code if client error
+    }
+
+    try {
+    const updateProduct = await Product.findByIdAndUpdate(id, product, {new: true}); // new: true will return the updated product
+    res.status(200).json({success: true, data: updateProduct});
+    } catch (error) {
+    res.status(500).json({success: false, message: "Server Error" }); // 500 status code if server error
+    }
+};
