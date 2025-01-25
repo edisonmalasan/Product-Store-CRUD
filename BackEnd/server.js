@@ -1,7 +1,7 @@
 import express from "express"; // add the "type": "module" in package to use this import 
 import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
-import productRoutes from ".routes/product.routes.js";
+import productRoutes from "./routes/product.routes.js";
 
 dotenv.config();
 
