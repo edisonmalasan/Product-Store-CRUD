@@ -2,10 +2,14 @@ import express from "express";
 import mongoose from "mongoose";
 import Product from "../models/product.model.js";
 
+import { getProducts } from "../controller/product.controller.js";
+
 
 const router = express.Router();
 
-router.app.get("/", async (req, res) => {
+router.get("/", getProducts);
+
+router.get("/", async (req, res) => {
     try {
         const products = await Product.find({}); 
         res.status(200).json({success: true, data: products});
@@ -15,7 +19,7 @@ router.app.get("/", async (req, res) => {
     }
 });
 
-router.app.post("/", async (req, res) => {
+router.post("/", async (req, res) => {
     const product = req.body; // user will send this data to use it u need to use express.json
 
     if(!product.name || !product.price || !product.image) {
@@ -33,7 +37,7 @@ router.app.post("/", async (req, res) => {
     }
 });
 
-router.app.put("/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
     const {id} = req.params;
     const product = req.body;
 
@@ -49,7 +53,7 @@ router.app.put("/:id", async (req, res) => {
     }
 });
 
-router.app.delete("/:id", async (req,res) => {
+router.delete("/:id", async (req,res) => {
     const {id} = req.params
     
     try {
