@@ -5,14 +5,9 @@ function App() {
 
   return (
     <>
-    <Button>
+    <Button href="https://www.google.com" colorScheme="teal" size="lg">
       Click me
     </Button>
-    <Stack align='center' direction='row'>
-  <Switch size='sm' />
-  <Switch size='md' />
-  <Switch size='lg' />
-</Stack>
     </>
   )
 }
