@@ -1,17 +1,22 @@
-import { Button, Container, Flex, HStack, Link, Text } from '@chakra-ui/react'
-import React from 'react'
+import { PlusSquareIcon } from '@chakra-ui/icons';
+import { Button, Container, Flex, HStack, Text } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <Container maxW={"1140px"} px={4}>
-      <Flex>
+      <Flex         
         h={16}
         alignItems={"center"}
         justifyContent={"space-between"}
-        flexDirection={{ base: "column", md: "row" }}
+        flexDir={{
+          base: "column",
+          sm: "row",
+        }}
+        >
 
         <Text
-        fontSize = {{ base: "22", sm: "28" }}
+        fontSize={{ base: "22", sm: "28" }}
         fontWeight={"bold"}
         textTransform={"uppercase"}
         textAlign={"center"}
@@ -24,12 +29,14 @@ const Navbar = () => {
         <HStack spacing={2} alignItems={"center"}>
           <Link to={"/create"}>
             <Button>
+              <PlusSquareIcon fontSize={"20"} />
             </Button>
           </Link>
+
         </HStack>
       </Flex>
     </Container>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
