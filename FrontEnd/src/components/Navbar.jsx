@@ -1,4 +1,4 @@
-import { Container } from '@chakra-ui/react'
+import { Button, Container, Flex, HStack, Link, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const Navbar = () => {
@@ -18,8 +18,15 @@ const Navbar = () => {
         bgGradient={"linear(to-r, cyan.400,blue.500)"}
         bgClip={"text"}
         >
-          <Link to={"/"}> Product Store 🛒</Link>
+          <Link to={"/"}>Product Store 🛒</Link>
         </Text>
+
+        <HStack spacing={2} alignItems={"center"}>
+          <Link to={"/create"}>
+            <Button>
+            </Button>
+          </Link>
+        </HStack>
       </Flex>
     </Container>
   )
