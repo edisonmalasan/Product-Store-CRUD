@@ -31,8 +31,16 @@ const CreatePage = () => {
               value={newProduct.name}
               onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
             >
-
+              // Product Name
             </Input>
+            <Input
+              placeholder="Price"
+              name='price'
+              value={newProduct.price}
+              onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })} 
+              >
+                // Price
+              </Input>
           </VStack>
         </Box>
       </VStack>
