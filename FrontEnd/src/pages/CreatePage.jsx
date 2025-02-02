@@ -11,7 +11,7 @@ const CreatePage = () => {
 
   const handleAddProduct = () => {
     console.log(newProduct);
-  }
+  };
 
   return (
     <Container maxW={"container.sm"} >
