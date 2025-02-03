@@ -36,8 +36,25 @@ const ProductCard = (product) => {
     }
 
     const handleUpdateProduct = async (id, updatedProduct) => {
-        await updateProduct(id, updatedProduct);
+        const {success, message} = await updateProduct(id, updatedProduct);
         onClose();
+        if(!success) {
+            toast({
+                title: "Error",
+                description: message,
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+            });
+        } else {  
+            toast({
+                title: "Success",
+                description: message,
+                status: "success",
+                duration: 5000,
+                isClosable: true,
+            });
+        }
     }
 
   return (

@@ -65,5 +65,10 @@ export const useProductStore = create((set) => ({
                 return product;
             }),
         }));
+
+        return {
+            success: true,
+            message: data.message,
+        };
     }
 }));
