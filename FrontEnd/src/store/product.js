@@ -34,9 +34,9 @@ export const useProductStore = create((set) => ({
             success: true,
             message: data.message,
 
-            set((state) => ({ products: state.products.filter((product) => product._id !== id) }));  // remove the product from the state if it is deleted not needing to reload the page
+            set((state) => ({ products: state.products.filter((product) => product._id !== id) }));  // update ui immediately, without needing to refresh the page
         } else {
-            set((state) => ({ products: state.products.filter((product) => product._id !== id) })); // remove the product from the state if it is deleted not needing to reload the page
+            set((state) => ({ products: state.products.filter((product) => product._id !== id) })); // update ui immediately, without needing to refresh the page
             return {
                 success: true,
                 message: data.message,
