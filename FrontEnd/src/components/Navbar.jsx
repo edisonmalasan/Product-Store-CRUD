@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   const {colorMode, toggleColorMode } = useColorMode();  
 
+  const { products } = useProductStore();
+
   return (
     <Container maxW={"1140px"} px={4} >
       <Flex         
