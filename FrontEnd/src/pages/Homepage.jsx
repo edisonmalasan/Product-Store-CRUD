@@ -13,14 +13,14 @@ const Homepage = () => {
           bgGradient={"linear(to-r, cyan.400,blue.500)"}
           bgClip={"text"}
           >
-            <Link to={"/"}>Product Store 🛒</Link>
+            <Link to={"/"}>Current Products 🚀</Link>
           </Text>
 
           <Text fontSize='xl' textAlign={"center"} fontWeight={'bold'} color={'gray.500'} > 
               No products found 😢{""}
               <Link to={"/create"}>
                 <Text as={'span'} color={'blue.500'} _hover={{ textDecoration: 'underline' }}>
-                  Create a new product 🚀
+                  Create a new product
                 </Text>
               </Link>
           </Text>
