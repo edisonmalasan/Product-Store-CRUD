@@ -5,6 +5,12 @@ import { create } from "zustand";
 export const useProductStore = create((set) => ({
     products: [],
     setProducts: (products) => set({ products }),
+    createProduct: async (newProduct) => {
+        if(!newProduct.name || !newProduct.price || !newProduct.image) {
+            return {success: false, message: "Please fill all the fields."}
+        }
+        const response = await fetch("/api/products", {
+            
+        })
+    }, 
 }));
-
-const [state, setState] = useState({})
