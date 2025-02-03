@@ -43,4 +43,27 @@ export const useProductStore = create((set) => ({
             };
         }
     },
+    updateProduct: async (id, updatedProduct) => {
+        const res = await fetch(`/api/products/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedProduct),
+        });
+        const data = await res.json();
+        if(!data.success) return {
+            success: false,
+            message: data.message,
+        }
+        // update ui immediately, without needing to refresh the page
+        set((state) => ({
+            products: state.products.map((product) => {
+                if(product._id === id) {
+                    return data.data;
+                }
+                return product;
+            }),
+        }));
+    }
 }));
